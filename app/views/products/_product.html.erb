@@ -6,7 +6,16 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Price:</strong>
-    <%= product.price %>
+    <%= number_to_currency(product.price) %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Photo:</strong>
+    <% if product.photo.present? %>
+      <%= image_tag(product.photo, class:"w-10 h-10") %>
+      <% else %>
+      <img src="" alt="photo">
+    <% end %>
+    
   </p>
 
   <% if action_name != "show" %>

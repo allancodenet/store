@@ -1,0 +1,25 @@
+<div>
+<h1>Checkout</h1>
+<h2>You are checking out the following items</h2>
+
+<%@cart.items.each do |item|%>
+
+ <li>
+ <%=item.quantity%>
+<%=item.product.name%>
+ <%=item.total_price%>
+ </li>
+
+<% end %>
+<p class="font-bold">TOTAL <br><%=number_to_currency @cart.total_price%></p> 
+<hr>
+<br>
+<h1> customer information</h1>
+<%=form_with model:@order  do |form| %>
+
+<%= form.label :quantity%>
+<%= form.text_field  :quantity%>
+<%= form.submit "place order"%>
+
+<% end %>
+</div>

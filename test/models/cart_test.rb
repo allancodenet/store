@@ -21,4 +21,32 @@ test "retrieving products" do
  assert_kind_of Product, cart.items.first.product
 end
 
+test "serializes_to_hash" do
+  cart = Cart.new
+  cart.add_item 1
+  assert_equal cart.serialize, session_hash["cart"]
+end
+
+test "builds_from_hash" do
+  cart = Cart.build_from_hash session_hash
+  assert_equal 1, cart.items.first.product_id
+end
+
+
+
+
+
+
+private
+def session_hash
+  {
+    "cart" =>{
+       "items" =>[
+        {"product_id" => 1, "quantity" => 1}
+       ]
+    }
+  }
+end
+
+
 end

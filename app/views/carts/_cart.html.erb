@@ -1,0 +1,8 @@
+<% if  @cart.empty?%>
+  empty cart
+<% else %>
+<%= link_to "#{pluralize @cart.count, "item" }", cart_path %> 
+<% end %>
+
+
+

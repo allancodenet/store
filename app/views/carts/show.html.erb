@@ -1,0 +1,31 @@
+<div>
+<table>
+<thead>
+<th>Quantity</th>
+<br>
+<th>Product</th>
+<hr>
+<th>Price</th>
+
+<hr>
+</thead>
+<% @cart.items.each do |item|%>
+<tr>
+
+<td><%= item.quantity%></td>
+<td><%= item.product.name%></td>
+<td><%= item.total_price%></td>
+</tr>
+
+<% end %>
+<tfoot>
+<th>Total</th>
+<tr>
+<td><%= @cart.total_price%></td>
+</tr>
+</tfoot>
+</table>
+ <hr>
+ <p >
+ <%= link_to "checkout", checkout_cart_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-bold" %>
+ </p></div>

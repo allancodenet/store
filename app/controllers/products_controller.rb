@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :initialize_cart
 
   # GET /products or /products.json
   def index
@@ -18,6 +19,7 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
   end
+  
 
   # POST /products or /products.json
   def create
